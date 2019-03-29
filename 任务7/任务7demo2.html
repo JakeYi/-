@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul,
+        li,
+        p{
+            margin:0;
+            padding:0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .layout{
+            margin:0 auto;
+            width: 600px;
+            list-style: none;
+        }
+
+        .layout>li{
+            display: inline-block;
+        }
+
+        .bto {
+            display: inline-block;
+            padding:8px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .bto:hover{
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .bto_s {
+            background-color:  #009688;
+            color: #fff;
+        }
+        .bto_y {
+            background-color: #ffeb3b;
+        }
+        .bto_o{
+            background-color: #ff9800;
+        }
+        .bto_r{
+            background-color:#f44336;
+            color: #fff;
+        }
+        .bto_g{
+            background-color: #4CAF50;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul class="layout">
+        <li>
+            <a href="#" class="bto_s bto">steal</a>
+        </li>
+        <li>
+            <a href="#" class="bto_y bto">yellow</a>
+        </li>
+        <li>
+            <a href="#" class="bto_o bto">orange</a>
+        </li>
+        <li>
+            <a href="#" class="bto_r bto">red</a>
+        </li>
+        <li>
+            <a href="#" class="bto_g bto">green</a>
+        </li>
+    </ul>
+</body>
+</html>
