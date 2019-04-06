@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1127473_xswmqrein4.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+
+        }
+
+        header {
+            background: #000 url(https://chenleoxx.github.io/demos/companypage/images/首页2.jpg) center center no-repeat;
+            height: 100%;
+            min-height: 600px;
+            min-width: 800px;
+            background-size: cover;
+        }
+
+        header::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        header .logo {
+            color: #f7ba3e;
+            font: 32px/1.5 arial;
+            float: left;
+            margin-top: 10px;
+        }
+
+        header .nav {
+            float: right;
+        }
+
+        header .nav li {
+            float: left;
+        }
+
+        header .nav a {
+            color: #fff;
+            font-size: 16px;
+            padding: 5px;
+            display: inline-block;
+            margin: 10px;
+
+        }
+
+        header .nav a:hover {
+            background-color: #f7ba3e;
+            border-radius: 3px;
+        }
+
+        header .intro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #fff;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        header .intro h1 {
+            font-size: 32px;
+        }
+
+        header .intro h2 {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        header .button {
+            margin-top: 20px;
+        }
+
+        header .button:hover {
+            opacity: 1;
+            background-color: #e8cb4f;
+        }
+
+        section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .family-intro h1 {
+            margin-top: 20px;
+            font-size: 40px;
+        }
+
+        .family-intro p {
+            margin-top: 20px;
+        }
+
+        .family-intro ul li {
+            float: left;
+            width: 33.33%;
+            padding: 10px 20px;
+        }
+
+        .family-intro ul .iconfont {
+            font-size: 60px;
+        }
+
+        .family h1 {
+            font-size: 40px;
+        }
+
+        .family p {
+            margin-top: 10px;
+        }
+
+        .family ul {
+            margin-top: 5px;
+        }
+
+        .family ul li {
+            float: left;
+            width: 33.3%;
+            padding: 10px;
+        }
+
+        .family img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .family figcaption {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .famliy ul p {
+            margin-top: 10px;
+        }
+
+        .family a {
+            position: relative;
+            height: 180px;
+            display: block;
+        }
+
+        .family a:hover::before {
+            content: "+";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(256, 128, 80, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #fff;
+        }
+
+        .time h1 {
+            font-size:40px;
+        }
+        .time p {
+            margin-top: 10px;
+        }
+        .time ul>li {
+            margin-top: 30px;
+            position: relative;
+        }
+        .time ul>li::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .time ul li img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid lightblue;
+        }
+        .time .img {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid lightblue;
+            text-align: center;
+            padding-top: 20px;
+        }
+        .time ul>li:nth-child(odd) {
+            text-align: right;
+            padding-right: calc(50% - 50px);
+        }
+        .time ul>li:nth-child(odd) img {
+            float: right;
+        }
+        .time ul>li:nth-child(even){
+            text-align: left;
+            padding-left: calc(50% - 50px);
+        }
+        .time ul>li:nth-child(even) img {
+            float: left;
+        }
+        .time  dt {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .time ul>li:nth-child(odd) dl{
+            margin-right: 120px;
+        }
+        .time ul>li:nth-child(even) dl{
+            margin-left: 120px;
+        }
+        .time ul>li::before {
+            content: "";
+            display: inline-block;
+            width: 3px;
+            height: 39px;
+            background-color: lightblue;
+            position: absolute;
+            left: 50%;
+            top: 98px;
+        }
+        .time ul>li:last-child::before {
+            height: 0;
+        } 
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar clearfix layout">
+            <a href="#" class="logo">Game of Thrones</a>
+            <ul class="nav">
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Family</a></li>
+                <li><a href="#">Character</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="intro layout">
+            <h1>WINTER IS COMMING</h1>
+            <h2>ALONE WOLF DEATH,WOLVES LIVE.</h2>
+            <a href="#" class="button">Tell me more</a>
+        </div>
+    </header>
+    <main class="layout">
+        <section class="family-intro">
+            <h1>家族介绍</h1>
+            <p>关于各个家族的介绍</p>
+            <ul class="clearfix">
+                <li>
+                    <span class="iconfont icon-family1"></span>
+                    <h3>史塔克家族</h3>
+                    <p>史塔克家族的起源可以追溯到“筑城者”布兰登和远古的冬境之王。
+                        数千年来，他们坐镇临冬城，以北境之王自居，直到“降服王”托伦·
+                        史塔克为避免战端，向龙王伊耿宣誓效忠为止</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family2"></span>
+                    <h3>兰尼斯特家族</h3>
+                    <p>金发白肤，高大俊美，兰尼斯特家族人体内流着在西方山陵峡谷间建立起强大王国的安达尔冒险者的血液。</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family3"></span>'
+                    <h3>拜拉席恩家族</h3>
+                    <p>拜拉席恩家族是王国数大家族中最年轻的一家，崛起于征服战争时期，
+                        相传第一代族长奥里斯·拜拉席恩本是龙王伊耿的私生兄弟，但他在
+                        战争中级级晋升，最后成为伊耿麾下最勇猛的将领之一</p>
+                </li>
+            </ul>
+        </section>
+        <section class="family">
+            <h1>FAMILY</h1>
+            <p>马丁创作过多种类型的小说，早期的小说不仅让马丁创作经验上有所积累，
+                有很多早期作品直接被他又搬进了《冰与火之歌》里面，当然不是简单的加工与回收</p>
+            <ul class="clearfix">
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg"
+                                alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <p>Winter is coming</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg"
+                                alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <p>Winter is coming</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg"
+                                alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <p>Winter is coming</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg"
+                                alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <p>Winter is coming</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg"
+                                alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <p>Winter is coming</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg"
+                                alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <p>Winter is coming</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://chenleoxx.github.io/demos/companypage/images/%E7%8B%BC%E5%AE%B62.jpg"
+                                alt="">
+                        </a>
+                        <figcaption>Winterfell:House Starks</figcaption>
+                        <p>Winter is coming</p>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+        <section class="time">
+            <h1>TimeLine</h1>
+            <p>故事的发展曲线</p>
+            <ul>
+                <li>
+                    <img src="https://zhaoci.github.io/Demo/img/1.jpg" alt="">
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                            Sunt ut voluptatum eius sapiente,
+                            totam reiciendis temporibus qui
+                            quibusdam, recusandae sit vero und</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="https://zhaoci.github.io/Demo/img/1.jpg" alt="">
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                            Sunt ut voluptatum eius sapiente,
+                            totam reiciendis temporibus qui
+                            quibusdam, recusandae sit vero und</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="https://zhaoci.github.io/Demo/img/1.jpg" alt="">
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                            Sunt ut voluptatum eius sapiente,
+                            totam reiciendis temporibus qui
+                            quibusdam, recusandae sit vero und</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="https://zhaoci.github.io/Demo/img/1.jpg" alt="">
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                            Sunt ut voluptatum eius sapiente,
+                            totam reiciendis temporibus qui
+                            quibusdam, recusandae sit vero und</dd>
+                    </dl>
+                </li>
+                <li>
+                    <img src="https://zhaoci.github.io/Demo/img/1.jpg" alt="">
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones Season 1</dd>
+                        <dd>Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                            Sunt ut voluptatum eius sapiente,
+                            totam reiciendis temporibus qui
+                            quibusdam, recusandae sit vero und</dd>
+                    </dl>
+                </li>
+                <li >
+                    <span class="img">STAY TUNED FOR NEXT SEASON!</span>
+                </li>
+            </ul>
+        </section>
+        <section></section>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
