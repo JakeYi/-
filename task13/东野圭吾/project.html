@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="commone.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1128354_j91veron3n.css">
+    <style>
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            position: relative;
+        }
+        header {
+            background: black url(https://jakeyi.github.io/jirengu/resourse/poster.jpg) center
+            center no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            min-height: 600px;
+            min-width: 1000px;
+        }
+        header nav{
+            position: fixed;
+            top: 0;
+            left: 10%;
+            z-index: 10;
+        }
+        header nav>a {
+            font-size: 32px;
+            font-weight: bold;
+            float: left;
+            margin-top: 10px;
+            color: #fed136;
+        }
+        header .navbar {
+            float: right;
+        }
+        header .navbar>li {
+            float: left;
+            margin-top: 10px;
+        }
+        header .navbar a {
+            display: block;
+            padding: 5px 10px;
+            margin:0 5px;
+            color: #fed136;
+        }
+        header nav a:hover {
+            background-color: #000;
+            opacity: 0.3;
+            border-radius: 4px;
+        }
+        header .intro-txt {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        header .intro-txt h1 {
+            font-size: 32px;
+            color: #fff;
+        }
+        header .intro-txt h2 {
+            font-size: 40px;
+            color: #fff;
+            margin-top: 10px;
+        }
+        header .intro-txt .button {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 20px;  
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+        header .intro-txt .button:hover {
+            background-color: #fed136;
+        }
+        main section {
+            margin-top: 30px;
+        }
+       main h1 {
+            font-size: 32px;
+            margin-top: 150px;
+        }
+        main #writer-carrer>p {
+            color: #666;
+            margin-top: 10px;
+        }
+        main .writer-itro {
+            margin-top: 30px;
+        }
+        main .writer-itro li {
+            width: 33.33%;
+            padding: 0px 20px;
+            float: left;
+        }
+        main .writer-itro h2 {
+            margin-top: 20px;
+        }
+        main .writer-itro p {
+            margin-top: 10px;
+            color: #666;
+        }
+        main .writer-itro .iconfont {
+            font-size: 60px;
+            color: #fff;
+            padding: 15px;
+            background-color: #fed136;
+            border-radius: 50%;
+        }
+        main #main-work {
+            text-align: center;
+        }
+        main #main-work>p{
+            
+            margin-bottom: 50px;
+        }
+        main .work>li {
+            float: left;
+            width: calc(33.3% - 20px);
+            margin-right: 20px;
+            background-color: #fff;
+            margin-top: 20px;
+            height:300px;
+            position: relative;
+        }
+        main .work {
+            margin-right: -20px;
+        }
+        main .work img {
+            width: 100%;
+            height: 175px;
+            padding:0 100px;
+            background-size: cover;
+        }
+        main .work figcaption {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            
+        }
+        main .work p{
+            color: #666;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        main .work a:hover:before{
+            content:"+";
+            top: 0;
+            bottom: 125px;
+            left: 100px;
+            right: 100px;
+            position: absolute;
+            background-color:#fed136;
+            opacity: 0.6;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        main #award-record>p {
+           color: #666;
+           margin-top: 30px;
+        }
+        main .award img {
+            width: 150px;
+            height: 150px;
+            border: 8px solid #eee;
+            border-radius: 50%;
+            background-size: cover;
+        }
+        main .award li:nth-child(odd) img{
+            float: right;
+        }
+        main .award li:nth-child(even) img{
+            float: left;
+        }
+        main .award li::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        main .award li:nth-child(odd) {
+            margin-top: 100px;
+            padding-right: calc(50% - 75px);
+            text-align: right;
+        }
+        main .award li:nth-child(even) {
+            margin-top: 100px;
+            padding-left: calc(50% - 75px);
+            text-align: left;
+        }
+        main .award li:nth-child(odd) dl {
+            margin-right: 170px;
+        }
+        main .award li:nth-child(even) dl {
+            margin-left: 170px;
+        }
+        main .award dl dt{
+            font-size: 16px;
+            font-weight: bold;
+        }
+        main .award dl dd {
+            margin-top: 10px;
+            color: #666;
+            font-size: 12px;
+            line-height: 2;
+        }
+        main .award li {
+            position: relative;
+        }
+        main .award li:before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 100px;
+            background-color: #eee;
+            position: absolute;
+            top: 100%;
+            left:50%;
+        }
+        main .award li:last-child:before {
+            height: 0;
+        }
+        main .award .award-more {
+            width: 150px;
+            height: 150px;
+            background-color: #fed136;
+            border: 8px solid #eee;
+            border-radius: 50%;
+            padding: 30px 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+            line-height: 2;
+        }
+        main #our-team>p{
+            margin-top: 30px;
+            color: #666;
+        }
+        main .team>li {
+            float: left;
+            margin-top: 100px;
+        }
+        main .team>li {
+            width: 33.33%;
+        }
+        main .team img {
+            width: 200px;
+            height: 200px;
+            border: 5px solid #eee;
+            border-radius: 50%;
+            background-size: cover;
+        }
+        main .team h2 {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        main .team p {
+            color: #666;
+        }
+        main .team-contact>li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+        main .team-contact a {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 100%;
+            font-size: 20px;
+            line-height: 40px;
+            background-color: #000;
+            color: #fff;
+        }
+        main .team-contact a:hover {
+            background-color: #fed136;
+        }
+        main .team-contact {
+            margin-top: 20px;
+        }
+        main .team-intro {
+            color: #666;
+            margin: 100px 200px;
+        }
+        main .brand li {
+            float: left;
+            width: 25%;
+        }
+        main .brand img {
+            height: 100px;
+        }
+        main .brand {
+            margin-top: 200px;
+        }
+        main #contact-us h1 {
+            margin-top: 0;
+            color: #fff;
+            font-weight: bold;
+            padding-top: 100px;
+            font-size: 32px;
+        }
+        main #contact-us>p {
+            color: #ccc;
+            margin-top: 30px;
+        }
+        main #contact-us {
+            background:#000 url(https://jakeyi.github.io/jirengu/resourse/close-up-dark-dirty-592753.jpg) center center no-repeat;
+            width: 100%;
+            height: 800px;
+            background-size: cover;
+        }
+        main .contact {
+            margin-top: 50px;
+        }
+        main .contact ul {
+           width: 50%;
+           float: left;
+           padding-right: 30px;
+        }
+        main .contact ul input {
+            width: 100%;
+            height: 50px;
+            padding: 20px 20px;
+            margin-top: 30px;
+            border: 1px solid #fed136;
+            border-radius: 4px;
+        }
+            
+        main input::-webkit-input-placeholder {
+        /* WebKit browsers*/
+            font: 16px/1.5 arial;
+            color: #999;
+            font-weight: bold;
+        }
+        main textarea::-webkit-input-placeholder {
+            font: 16px/1.5 arial;
+            color: #999;
+            font-weight: bold;
+        }
+        main .contact .message {
+            width: 50%;
+            float: right;
+            
+        }
+        main .contact .message textarea{
+            margin-top: 30px;
+            width: 100%;
+            height: 210px;
+            border: 1px solid #fed136;
+            border-radius: 5px;
+            padding: 20px 20px;
+            font: 16px/1.5 arial;
+            color: #333;
+        }
+        main #contact-us button{
+            display: inline-block;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px 20px;  
+            border-radius: 4px;
+            margin-top: 30px;
+            background-color: #fed136;
+            color:  #fff;
+            border: 1px solid #eee;
+        }
+        main #contact-us button:hover {
+            opacity: 0.6;
+        }
+        footer .producer {
+            float:left;
+        }
+        footer {
+            padding: 30px 0;
+        }
+        footer .contact {
+            text-align: center;
+        }
+        footer .contact li {
+            display: inline-block;
+        }
+        footer .contact a{
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 100%;
+            font-size: 20px;
+            line-height: 40px;
+            background-color: #000;
+            color: #fff;
+        }
+        footer .contact a:hover {
+            background-color: #fed136;
+        }
+        footer .policy {
+            float: right;
+        }
+       footer .policy a {
+           color: #000;
+           display: inline-block;
+           font-size: 16px;
+           font-weight: bold;
+       }
+       footer .policy a:hover {
+           color: #666;
+       }
+       footer .policy li {
+           display: inline-block;
+       }
+    </style>
+</head>
+<body>
+    <header >
+        <nav class="layout clearfix">
+            <a href="" class="logo">东野圭吾</a>
+            <ul class="navbar">
+                    <li><a href="#writer-carrer">作者生涯</a></li>
+                    <li><a href="#main-work">主要作品</a></li>
+                    <li><a href="#award-record">获奖记录</a></li>
+                    <li><a href="#our-team">我们的团队</a></li>
+                    <li><a href="#contact-us">联系我们</a></li>
+                </ul>
+        </nav>
+        <div class="layout intro-txt">
+            <h1>在漫长的黑暗中，你是我唯一的光明。</h1>
+            <h2>有时，只要一个人还活着，就足以拯救某人。</h2>
+            <a href="#" class="button">告诉我更多</a>
+        </div>
+    </header>
+    <main>
+        <section id="writer-carrer" class="layout">
+            <h1>作者生涯</h1>
+            <p>东野圭吾是一位日本作家，主要以他的神秘小说而闻名。</p>
+            <ul class="writer-itro clearfix">
+                <li>
+                    <span class="iconfont icon-education"></span>
+                    <h2>教育情况</h2>
+                    <p>1958年出生于大阪府大阪市，
+                        毕业于大阪府立阪南高等学校、
+                        大阪府立大学工学部电气工学科
+                        （电气工程系）</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-carrer"></span>
+                    <h2>职业生涯</h2>
+                    <p>学生时代开始接触推理小说，例如松本清张与小峰元。东野圭吾于
+                        大学毕业后，原先于汽车零件供应商日本电装担任工程师，1985年
+                        以《放学后》获得第31届江户川乱步奖，随即在1986年辞职，成为专业作家。</p>
+                </li>
+                <li>
+                    <span class="iconfont icon-write"></span>
+                    <h2>写作生涯</h2>
+                    <p>东野圭吾于1999年以《秘密》获第52届日本推理作家协会奖，2006年以
+                        《嫌疑犯X的献身》获第134届直木赏和本格推理大奖，此书并一举拿下当
+                        年度三大推理小说排行榜——「『这本推理小说了不起！』」、《本格推理小说Bes
+                        t 10》和「周刊文春推理小说Best 10」的第一名，故有三冠王之称。</p>
+                </li>
+            </ul>
+        </section>
+        <section id="main-work" class="layout">
+            <h1 >主要作品</h1>
+            <p >以下按照作本人的作品知名度进行详情列举</p>
+            <ul class="clearfix work ">
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://img1.doubanio.com/view/subject/l/public/s24514468.jpg" alt="">
+                        </a>
+                        <figcaption>白夜行</figcaption>
+                        <p>1973年10月，大阪一栋荒废大楼发生命案，52岁的当铺老板桐原洋介被人以利器杀死。</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://img3.doubanio.com/view/subject/l/public/s27264181.jpg" alt="">
+                        </a>
+                        <figcaption>解忧杂货店</figcaption>
+                        <p>现代人内心流失的东西，这家杂货店能帮你找回</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://img3.doubanio.com/view/subject/l/public/s3254244.jpg" alt="">
+                        </a>
+                        <figcaption>嫌疑人x的献身</figcaption>
+                        <p>百年一遇的数学天才石神，每天唯一的乐趣，便是去固定的便当店买午餐，只为看一眼在便当店做事的邻居靖子。</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://img3.doubanio.com/view/subject/l/public/s3814606.jpg" alt="">
+                        </a>
+                        <figcaption>恶意</figcaption>
+                        <p>畅销书作家在出国的前一晚于家中被杀。凶手很快落网，对罪行供认不讳、但求速死，却对作案动机语焉不详。</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://img3.doubanio.com/view/subject/l/public/s4123451.jpg" alt="">
+                        </a>
+                        <figcaption>时生</figcaption>
+                        <p>确信喜欢的人能好好活着，即便面对死亡，也有如看到了未来。</p>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#">
+                            <img src="https://img3.doubanio.com/view/subject/l/public/s5909700.jpg" alt="">
+                        </a>
+                        <figcaption>秘密</figcaption>
+                        <p>一场车祸改变了杉田平介平淡而幸福的家庭生活。妻子直子不幸身亡，女儿藻奈美奇迹般苏醒后，平介却发现她的身体里住着的是直子的灵魂……</p>
+                    </figure>
+                </li>
+            </ul>
+        </section>
+        <section id="award-record" class="layout">
+            <h1>获奖记录</h1>
+            <p>获奖与入围纪录</p>
+            <ul class="award">
+                <li>
+                   <img src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=9e51c4af59b5c9ea76fe0bb1b450dd65/d1a20cf431adcbefdcc38ca2aeaf2edda2cc9f9b.jpg" alt="">
+                   <dl>
+                       <dt>1985年</dt>
+                       <dt>《放学后》第31回“江户川乱步奖”</dt>
+                       <dd>本书是以名门女子高中为舞台，描写在女子高中内发生的案件，
+                            最后揭开真相的校园青春推理小说。东野在大学时代曾在射箭
+                            社担任部长，所以书中也以射箭社为题材。</dd>
+                   </dl> 
+                </li>
+                <li>
+                  <img src="https://upload.wikimedia.org/wikipedia/zh/e/e3/Wsecret.jpg" alt="">
+                   <dl>
+                       <dt>1999年</dt>
+                       <dt>《秘密》第52回「日本推理作家协会奖」获奖</dt>
+                       <dd>一场车祸改变了杉田平介平淡而幸福的家庭生活。妻子直子不幸身亡，女儿藻奈美奇迹般苏醒后，平介却发现她的身体里住着的是直子的灵魂……</dd>
+                   </dl> 
+                </li>
+                <li>
+                    <img src="https://upload.wikimedia.org/wikipedia/zh/0/04/Wsuspect.jpg" alt="">
+                    <dl>
+                        <dt>2006年</dt>
+                        <dt>《嫌疑犯X的献身》「直木三十五奖」「本格推理大奖」</dt>
+                        <dd>百年一遇的数学天才石神，每天唯一的乐趣，便是去固定的便当店买午餐，只为看一眼在便当店做事的邻居靖子。</dd>
+                    </dl> 
+                </li>
+                <li>
+                   <img src="https://upload.wikimedia.org/wikipedia/zh/f/f2/Wmeteor.jpg" alt="">
+                   <dl>
+                       <dt>2008年</dt>
+                       <dt>《流星之绊》第43回「新风奖」</dt>
+                       <dd>内容是描述双亲遭到惨杀而背负着残酷命运的三兄妹，在双亲逝世14年后向犯人复仇的作品。</dd>
+                   </dl> 
+                </li>
+                <li>
+                    <img src="https://upload.wikimedia.org/wikipedia/zh/5/5d/Wdreamflower.jpg" alt="">
+                   <dl>
+                       <dt>2013年</dt>
+                       <dt>《梦幻花》第26回「柴田链三郎奖」</dt>
+                       <dd>大阪的大学研究生苍太在父亲的三回忌时回到江东区木场的老家。而在员警厅工作的哥哥要介则表示工作比父亲的三回忌要重要而外出。为了接近梨乃不惜捏造自己的职业,其真正的目的是什么？</dd>
+                   </dl> 
+                </li>
+                <li>
+                    <div class="award-more">更多获奖经历详情请见维基百科</div>
+
+                </li>
+            </ul>
+        </section>
+        <section id="our-team" class="layout">
+            <h1>我们的团队</h1>
+            <p>拥有一大波帅哥美女</p>
+            <ul class="team clearfix">
+                <li>
+                    <img src="http://www.gstatic.com/tv/thumb/persons/156932/156932_v9_ba.jpg" alt="">
+                    <h2>宫崎骏</h2>
+                    <p>首席设计师</p>
+                    <ul class="team-contact">
+                        <li>
+                            <a href="" class="iconfont icon-wechat"></a>
+                        </li>
+                        <li>
+                           <a href="" class="iconfont icon-qq"></a>
+                        </li>
+                        <li>
+                            <a href="" class="iconfont icon-weibo"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <img src="http://fc.life.com.tw/upload_file/7/content/f2d1d280-53f1-ceb9-19e0-4b1ae53072f2.jpg" alt="">
+                    <h2>刘德华</h2>
+                    <p>财务总监</p>
+                    <ul class="team-contact">
+                        <li>
+                            <a href="" class="iconfont icon-wechat"></a>
+                        </li>
+                        <li>
+                           <a href="" class="iconfont icon-qq"></a>
+                        </li>
+                        <li>
+                            <a href="" class="iconfont icon-weibo"></a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <img src="http://p0.ifengimg.com/2019_02/0DB26488C020B1A96224C4E1489821304E61BAF6_w1000_h1000.jpg" alt="">
+                    <h2>陈奕迅</h2>
+                    <p>运营总管</p>
+                    <ul class="team-contact">
+                        <li>
+                            <a href="" class="iconfont icon-wechat"></a>
+                        </li>
+                        <li>
+                           <a href="" class="iconfont icon-qq"></a>
+                        </li>
+                        <li>
+                            <a href="" class="iconfont icon-weibo"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="team-intro">
+                我的天空里没有太阳，总是黑夜，但并不暗，
+                因为有东西代替了太阳。虽然没有太阳那么明亮，
+                但对我来说已经足够。凭借着这份光，我便能把黑
+                夜当成白天。我从来就没有太阳，所以不怕失去。
+            </div>
+        </section>
+        <section class="brand layout">
+                <ul class="clearfix">
+                    <li>
+                        <a href="#">
+                            <img src="https://jakeyi.github.io/jirengu/resourse/brand1.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://jakeyi.github.io/jirengu/resourse/brand2.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://jakeyi.github.io/jirengu/resourse/brand3.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="https://jakeyi.github.io/jirengu/resourse/brand4.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+        </section>
+        <section id="contact-us">
+            <h1>联系我们</h1>
+            <p>填写下列信息，帮助我们更了解你</p>
+            <form action="/abc" method="get">
+                <div class="contact layout clearfix">
+                    <ul >
+                        <li>
+                            <input type="text" placeholder="YOUR NAME*">
+                        </li>
+                        <li>
+                            <input type="email" placeholder="YOUR EMAIL*">
+                        </li>
+                        <li>
+                            <input type="phone" placeholder="YOUR PHONE*">
+                        </li>
+                    </ul>
+                    <div class="message">
+                        <textarea name="" id="" placeholder="YOUR MESSAGE*"></textarea>
+                    </div>
+                </div>
+                <button type="submit">SEND MESSAGE</button>
+            </form>
+            
+        </section>
+    </main>
+    <footer class="layout clearfix">
+        <div class="producer">
+            <p>Copyright © Jake Yi 2019</p>
+        </div>
+        <div class="policy">
+                <ul>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+                </ul>
+            </div>
+        <div class="contact">
+            <ul>
+                <li>
+                    <a href="" class="iconfont icon-wechat"></a>
+                </li>
+                <li>
+                   <a href="" class="iconfont icon-qq"></a>
+                </li>
+                <li>
+                    <a href="" class="iconfont icon-weibo"></a>
+                </li>
+            </ul>
+        </div>
+        
+    </footer>
+</body>
+</html>
