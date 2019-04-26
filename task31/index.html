@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh
+        }
+        .cover {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000 url(/resourse/imge/background.jpg) center center no-repeat;
+            background-size: cover;
+   
+        }
+
+        .musicbox {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 340px;
+            font-family: cursive;
+            font-size: 16px;
+            color: #f06a6a;
+        }
+
+        .music-panle {
+            border: 1px solid #33ff99;
+            background-color: rgba(256, 235, 256, 0.9);
+            box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+            padding: 20px 30px 5px 30px;
+        }
+        .musicbox .control {
+            float: left;
+            color: #ee8a87;
+            font-size: 22px;
+            margin-top: 20px;
+        }
+        .musicbox .control .fas {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .musicbox .control .fas.disable {
+            opacity: 0.3;
+        }
+        .musicbox .info {
+            margin-left: 180px;
+        }
+        .musicbox .info .titile{
+            font-size: 18px;
+        }
+        .music .info .author {
+            font-size: 12px;
+        }
+        .musicbox .progress {
+            width: 260px;
+        }
+        .musicbox .progress .bar {
+            height: 3px;
+            margin-top: 10px;
+            background-color: rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .musicbox .progress .progress-now {
+            background-color: #ee8a87;
+            height: 3px;
+            width: 0;
+            position: relative;
+        }
+        .musicbox .time {
+            text-align: right;
+        }
+        .musicbox .music:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .musicbox .list {
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cover"></div>
+    <div class="musicbox">
+        <div class="music-panle">
+            <div class="music">
+                <div class="control">
+                    <span class="back"><i class="fas fa-step-backward"></i></span>
+                    <span class="play"><i class="fas fa-play"></i></span>
+                    <span class="forward"><i class="fas fa-step-forward"></i></span>
+                </div>
+                <div class="info">
+                    <div class="titile">My Song</div>
+                    <div class="author">JakeYi</div>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="bar">
+                <div class="progress-total"></div>
+                <div class="progress-now"></div>
+                </div>
+
+                <div class="time">0:00</div>
+            </div>
+        </div>
+        <ul class="list">
+            <!--    <li></li>-->
+        </ul>
+    </div>
+    <script>
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET','/music.json',true)
+        xhr.onload = function(){
+            if((xhr.status >= 200 && xhr.status <= 304) || xhr.status === 304){
+                console.log(this)
+            }
+        }
+        xhr.send()
+    </script>
+</body>
+</html>
