@@ -31,13 +31,14 @@
             width: 340px;
             font-family: cursive;
             font-size: 16px;
+            
             color: #f06a6a;
         }
 
         .music-panle {
-            border: 1px solid #33ff99;
-            background-color: rgba(256, 235, 256, 0.9);
-            box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            background-color: rgba(256, 235, 256, 0.1);
+            box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
             padding: 20px 30px 5px 30px;
         }
         .musicbox .control {
@@ -74,7 +75,7 @@
         .musicbox .progress .progress-now {
             background-color: #ee8a87;
             height: 3px;
-            width: 0;
+            width: 0%;
             position: relative;
         }
         .musicbox .time {
@@ -102,7 +103,7 @@
                     <span class="forward"><i class="fas fa-step-forward"></i></span>
                 </div>
                 <div class="info">
-                    <div class="titile">My Song</div>
+                    <div class="title">My Song</div>
                     <div class="author">JakeYi</div>
                 </div>
             </div>
@@ -120,14 +121,83 @@
         </ul>
     </div>
     <script>
-        var xhr = new XMLHttpRequest()
-        xhr.open('GET','/前端/git/jirengu/task31/music.json',true)
-        xhr.onload = function(){
-            if((xhr.status >= 200 && xhr.status <= 304) || xhr.status === 304){
-                console.log(this)
+        var currentIndex = 0
+        var clock
+        var audio = new Audio()
+        var musicList = []
+        audio.autoplay = true
+
+        getMusicList(function(list){
+            musicList = list
+            loadMusic(list[currentIndex])
+        })
+
+        audio.ontimeupdate = function(){
+            console.log(this.currentTime)
+            $('.musicbox .progress-now').style.width = (this.currentTime/this.duration)*100 + '%'
+            var min = Math.floor(this.currentTime/60)
+            var sec = Math.floor(this.currentTime%60) + ''
+            sec = sec.length === 2? sec : '0' + sec
+            $('.musicbox .time').innerText = min + ':' + sec
+        }
+        audio.onended = function() {
+            currentIndex = (++currentIndex)%musicList.length
+            console.log(currentIndex)
+            loadMusic(musicList[currentIndex])
+        }
+        $('.musicbox .play').onclick = function(){
+            if(audio.paused){
+                audio.play()
+                this.querySelector('.fas').classList.add('fa-pause')
+                this.querySelector('.fas').classList.remove('fa-play')
+            }else{
+                audio.pause()
+                this.querySelector('.fas').classList.add('fa-play')
+                this.querySelector('.fas').classList.remove('fa-pause')
             }
         }
-        xhr.send()
+        $('.musicbox .forward').onclick = function(){
+            currentIndex = (++currentIndex)%musicList.length
+            console.log(currentIndex)
+            loadMusic(musicList[currentIndex])
+        }
+        $('.musicbox .back').onclick = function(){
+            currentIndex = (musicList.length + --currentIndex)%musicList.length
+            console.log(currentIndex)
+            loadMusic(musicList[currentIndex])
+        }
+        $('.musicbox .bar').onclick = function(e){
+            var percent = e.offsetX / parseInt(getComputedStyle(this).width)
+            audio.currentTime = audio.duration * percent
+        }
+        function $(selector){
+            return document.querySelector(selector)
+        }
+
+        function getMusicList(callback){
+            var xhr = new XMLHttpRequest()
+            xhr.open('GET','https://jakeyi.github.io/jirengu/task31/music.json',true)
+            xhr.onload = function(){
+                if((xhr.status >= 200 && xhr.status <= 304) || xhr.status === 304){
+                    callback(JSON.parse(this.responseText))
+                }else{
+                    console.log('获取数据失败')
+                }
+            }
+            xhr.onerror = function(){
+                console.log('网络异常')
+            }
+            xhr.send()
+        }
+
+        function loadMusic(musicObj){
+            console.log('begin play ',musicObj)
+            audio.src = musicObj.src
+            $('.musicbox .title').innerText = musicObj.title
+            $('.musicbox .author').innerText = musicObj.author
+            $('.cover').style.backgroundImage = 'url(' + musicObj.img + ')'
+        }
+          
     </script>
 </body>
 </html>
